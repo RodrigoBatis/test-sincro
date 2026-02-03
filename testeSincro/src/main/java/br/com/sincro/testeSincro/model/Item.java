@@ -20,14 +20,13 @@ import java.time.LocalDate;
 @Data
 public class Item {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SINCRO_ITEM")
     @Column(name = "id_name")
     private Long id;
 
-    @NotBlank(message = "Nome do item é obrigatório!")
-    @Column(name = "ds_name")
+    @NotBlank
+    @Column(name = "ds_name", nullable = false)
     private String name;
 
     @Column(name = "ds_sku")
@@ -37,36 +36,35 @@ public class Item {
     private String description;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "ds_category", length = 255)
+    @Column(name = "ds_category", nullable = false)
     private Category category;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "ds_location")
+    @Column(name = "ds_location", nullable = false)
     private Location location;
 
     @Column(name = "dt_date")
     private LocalDate date;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "ds_depreciationMethod")
+    @Column(name = "ds_depreciationmethod")
     private DepreciationMethod depreciationMethod;
 
-    @Column(name = "vl_depreciationRate")
+    @Column(name = "vl_depreciationrate")
     private Double depreciationRate;
 
-    @Column(name = "vl_residualValue")
+    @Column(name = "vl_residualvalue")
     private Double residualValue;
 
-    @Column(name = "vl_quantity")
-    @NotNull(message = "Quantidade de itens é obrigatório!")
-    private int quantity;
+    @NotNull
+    @Column(name = "vl_quantity", nullable = false)
+    private Integer quantity;
 
-    @Column(name = "vl_minimiumStock")
-    @NotNull(message = "Quantidade mínima de itens em estoque é obrigatório!")
-    private int minimiumStock;
+    @NotNull
+    @Column(name = "vl_minimiumstock", nullable = false)
+    private Integer minimiumStock;
 
-    @Column(name = "vl_unitPrice")
-    @NotNull(message = "Valor unitário do item é obrigatório!")
+    @NotNull
+    @Column(name = "vl_unitprice", nullable = false)
     private Double unitPrice;
-
 }
