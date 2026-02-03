@@ -1,5 +1,6 @@
 package br.com.sincro.testeSincro.service;
 
+import br.com.sincro.testeSincro.exception.ItemNotFoundException;
 import br.com.sincro.testeSincro.model.Item;
 import br.com.sincro.testeSincro.repository.ItemRepository;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,9 @@ public class ItemService {
         return repository.findAll();
     }
 
-    public Optional<Item> findById(Long id){
-        return repository.findById(id);
+    public Item findById(Long id){
+        return repository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException(id));
     }
 
     public void delete(Long id){

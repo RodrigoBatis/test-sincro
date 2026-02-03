@@ -32,31 +32,29 @@ public class ItemController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Item>getById(@PathVariable Long id){
-        return service.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Item> update(@PathVariable Long id, @Validated @RequestBody Item item){
-        return service.findById(id)
-                .map(existing -> {
-                    existing.setName(item.getName());
-                    existing.setSku(item.getSku());
-                    existing.setDescription(item.getDescription());
-                    existing.setCategory(item.getCategory());
-                    existing.setLocation(item.getLocation());
-                    existing.setDate(item.getDate());
-                    existing.setDepreciationMethod(item.getDepreciationMethod());
-                    existing.setDepreciationRate(item.getDepreciationRate());
-                    existing.setResidualValue(item.getResidualValue());
-                    existing.setQuantity(item.getQuantity());
-                    existing.setMinimiumStock(item.getMinimiumStock());
-                    existing.setUnitPrice(item.getUnitPrice());
+    public ResponseEntity<Item> update(@PathVariable Long id,
+                                       @Validated @RequestBody Item item) {
 
-                    return ResponseEntity.ok(service.save(existing));
-                })
-                .orElse(ResponseEntity.notFound().build());
+        Item existing = service.findById(id);
+
+        existing.setName(item.getName());
+        existing.setSku(item.getSku());
+        existing.setDescription(item.getDescription());
+        existing.setCategory(item.getCategory());
+        existing.setLocation(item.getLocation());
+        existing.setDate(item.getDate());
+        existing.setDepreciationMethod(item.getDepreciationMethod());
+        existing.setDepreciationRate(item.getDepreciationRate());
+        existing.setResidualValue(item.getResidualValue());
+        existing.setQuantity(item.getQuantity());
+        existing.setMinimiumStock(item.getMinimiumStock());
+        existing.setUnitPrice(item.getUnitPrice());
+
+        return ResponseEntity.ok(service.save(existing));
     }
 
     @DeleteMapping("/{id}")
