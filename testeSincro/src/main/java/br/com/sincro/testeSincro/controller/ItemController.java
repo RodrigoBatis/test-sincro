@@ -22,7 +22,7 @@ public class ItemController {
     @PostMapping
     public ResponseEntity<Item> createItem(@Validated @RequestBody Item item){
         Item saved = service.save(item);
-        return new ResponseEntity<>(saved, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     @GetMapping
