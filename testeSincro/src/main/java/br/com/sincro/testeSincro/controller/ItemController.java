@@ -30,7 +30,7 @@ public class ItemController {
         return service.findAll();
     }
 
-    @GetMapping("/{îd}")
+    @GetMapping("/{id}")
     public ResponseEntity<Item>getById(@PathVariable Long id){
         return service.findById(id)
                 .map(ResponseEntity::ok)
