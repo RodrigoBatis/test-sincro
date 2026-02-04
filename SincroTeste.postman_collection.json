@@ -1,0 +1,131 @@
+{
+  "info": {
+    "_postman_id": "b2ffc19c-6d49-4c98-a9e4-4a753820c8f0",
+    "name": "SincroTeste",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "23459166"
+  },
+  "item": [
+    {
+      "name": "GetAll",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/itens",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "itens"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Insert",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Geladeira\",\r\n  \"sku\": \"FG-001\",\r\n  \"description\": \"Geladeira 2 portas\",\r\n  \"category\": \"ELETRONICO\",\r\n  \"location\": \"PRIMEIRO_CORREDOR\",\r\n  \"date\": \"2025-02-01\",\r\n  \"depreciationMethod\": \"LINHA_RETA\",\r\n  \"depreciationRate\": 10.0,\r\n  \"residualValue\": 50.0,\r\n  \"quantity\": 2,\r\n  \"minimiumStock\": 2,\r\n  \"unitPrice\": 800.50\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/itens",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "itens"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/itens/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "itens",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\" : \"Teste Update\",\r\n    \"quantity\": 10,\r\n    \"unitPrice\": 800.5,\r\n    \"minimiumStock\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/itens/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "itens",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/itens/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "itens",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
